@@ -1,0 +1,440 @@
+// BOUCLES
+
+\\ Main module
+START 
+       nombreAleatoir = 52
+       write "Veuillez entrer un nombre"
+       i=0
+
+       while i=0 do
+            read nombre
+            if nombre > nombreAleatoir then
+                write "c'est moins"
+            else if nombre < nombreAleatoir then
+                write "c'est plus"
+            else if nombre = nombreAleatoir then
+                write "bravo, tu as gagné"
+                i=1
+            endif
+        endwhile 
+END
+
+
+
+// TABLEAUX
+
+2)
+
+START
+    apprenants = ["Jussi", "Max", "Fred"]
+    competances = ["html", "js", "css"]
+        
+        for i = 1 until 3 do
+            write apprenants[i], " a la compétance ", competances[i]
+        endfor
+END 
+
+3)
+
+// VERSION 1
+START
+    nombres = [[18,55], [29,13], [-2,15],[66,44]]
+    grand = 0
+        for i = 1 until 4 do
+            for y = 1 until 2 do
+                if nombres[i][1] > nombres[i][2] then
+                    grand = nombres[i][1] 
+                else 
+                    grand = nombres[i][2]
+                    write grand
+                endif
+            endfor
+        endfor
+END
+
+// VERSION 2
+START
+    nombres = [[18,55], [29,13], [-2,15],[66,44]]
+    grand = 0
+        for i = 1 until 4 do
+            for y = 1 until 2 do
+                if nombres[i][y] > nombres[i][y+1] and y+1 < 3 then
+                    grand = nombres[i][y]
+                else 
+                    grand = nombres[i][y+1]
+                endif
+                write grand
+            endfor
+        endfor
+END
+
+
+====================================
+// GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOD :
+====================================
+// VERSION 3 prend le plus grand nombre de chaque tableau dans le tableau
+
+START
+
+    nombre = [[18,55], [29,13], [-2,15], [66,44]]
+
+    for i = 1 until 4 do
+        grand = nombre[i][1]
+        for y = 1 until 2 do
+            if nombre[i][y] > grand then
+                grand = nombre[i][y]
+            endif
+        endfor
+        write grand
+    endfor
+END
+
+
+
+// VERSION 4 prend le plus grand nombre du tableau entier
+
+START
+
+    nombre = [[18,55], [29,13], [-2,15], [66,44]]
+    grand = nombre[1][1]
+
+    for i = 1 until 4 do
+        for y = 1 until 2 do
+            if nombre[i][y] > grand then
+                grand = nombre[i][y]
+            endif
+        endfor
+    endfor
+    write grand
+END
+
+
+4)
+
+//VERSION 1
+
+START
+
+    apprenants = [["David", "Justine", "Valentin","Axel", "Redouane"], ["Julie", "Stéphane", "Mostapha", "Claudiu", "Son"]]
+    
+        for i = 1 until 2 do
+            for y = 1 until 5 do
+                write apprenants[i][y], " est chez lovelace"
+                write apprenants[i][2], " est chez johnson"
+            endfor
+        endfor
+
+END
+
+//VERSION 2
+
+START
+
+    apprenants = [["David", "Justine", "Valentin","Axel", "Redouane"], ["Julie", "Stéphane", "Mostapha", "Claudiu", "Son"]]
+    
+        for i = 1 until 2 do
+            for y = 1 until 5 do
+                write apprenants[1], " est chez lovelace"
+                write apprenants[2], " est chez johnson"
+            endfor
+        endfor
+
+END
+
+//VERSION 3
+
+START
+
+    apprenants = [["David", "Justine", "Valentin","Axel", "Redouane"], ["Julie", "Stéphane", "Mostapha", "Claudiu", "Son"]]
+    
+        for i = 1 until 2 do
+            for y = 1 until 5 do
+                write apprenants[1][y], " est chez lovelace"
+                write apprenants[2][y], " est chez johnson"
+            endfor
+        endfor
+
+END
+
+=> David est chez lovelace
+   Julie est chez johnson
+   Justine est chez lovelace
+   Stéphane est chez johnson
+   Valentin est chez lovelace
+   Mostapha est chez johnson
+   Axel est chez lovelace
+   Claudiu est chez johnson
+   Redouane est chez lovelace
+   Son est chez johnson
+   David est chez lovelace
+   Julie est chez johnson
+   Justine est chez lovelace
+   Stéphane est chez johnson
+   Valentin est chez lovelace
+   Mostapha est chez johnson
+   Axel est chez lovelace
+   Claudiu est chez johnson
+   Redouane est chez lovelace
+   Son est chez johnson
+
+//VERSION 4
+
+START
+
+    apprenants = [["David", "Justine", "Valentin","Axel", "Redouane"], ["Julie", "Stéphane", "Mostapha", "Claudiu", "Son"]]
+    
+        for y = 1 until 5 do
+            write apprenants[1][y], " est chez lovelace"
+        endfor
+            write apprenants[2][y], " est chez johnson"
+
+END
+
+=> David est chez lovelace
+   Julie est chez johnson
+   Justine est chez lovelace
+   Stéphane est chez johnson
+   Valentin est chez lovelace
+   Mostapha est chez johnson
+   Axel est chez lovelace
+   Claudiu est chez johnson
+   Redouane est chez lovelace
+   Son est chez johnson
+
+
+//VERSION 5
+
+START
+
+    apprenants = [["David", "Justine", "Valentin","Axel", "Redouane"], ["Julie", "Stéphane", "Mostapha", "Claudiu", "Son"]]
+
+    for y = 1 until 5 do
+        write apprenants[1][y], " est chez lovelace"
+    endfor
+    for y = 1 until 5 do
+        write apprenants[2][y], " est chez johnson"
+    endfor
+
+END
+
+=> David est chez lovelace
+   Justine est chez lovelace
+   Valentin est chez lovelace
+   Axel est chez lovelace
+   Redouane est chez lovelace
+   Julie est chez johnson
+   Stéphane est chez johnson
+   Mostapha est chez johnson
+   Claudiu est chez johnson
+   Son est chez johnson
+
+
+// VERSION 6 (simplification)
+====================================
+// GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOD :
+====================================
+
+START
+
+    apprenants = [["David", "Justine", "Valentin","Axel", "Redouane"], ["Julie", "Stéphane", "Mostapha", "Claudiu", "Son"]]
+    
+        for i = 1 until 2 do
+            for y = 1 until 5 do
+                if i = 1 then
+                    write apprenants[i][y], " lovelace"
+                else 
+                    write apprenants[i][y], " johnson"
+                endif
+            endfor
+        endfor
+
+END
+
+
+// FONCTIONS
+
+
+1)
+
+\\ Auxiliary module HELLO
+ENTER prenom
+
+    var = "Bonjour " + prenom
+
+RETURN var
+
+\\ Main module 
+START
+
+    write HELLO("poupou")
+
+END
+
+
+2)
+
+\\ Auxiliary module FUNCTION
+ENTER a, b
+
+    if a > b then
+        resultat = 0
+    else
+        resultat = 1
+    endif
+
+RETURN resultat
+
+\\ Main module 
+START
+
+  write "Veuillez entrer un nombre"
+  read a 
+  write "Veuillez entrer un deuxieme nombre"
+  read b
+
+  write FUNCTION(a, b)
+
+END
+
+
+3)
+
+\\ Auxiliary module FUNCTION
+ENTER PRENOM, COMPETENCE, CLASSE
+
+        for i = 1 until count(COMPETENCE) do
+            resultat = PRENOM + " est dans la classe " + CLASSE + " et connait le " + COMPETENCE[i]
+        endfor
+
+RETURN resultat
+
+\\ Main module 
+START
+
+    comp = ["html", "css", "github", "pseudo-code"]
+    write FUNCTION("Estelle", comp , "Lovelace")
+
+END
+
+=> Estelle est dans la classe Lovelace et connait le pseudo-code
+
+
+// VERSION 2 
+====================================
+// GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOD :
+====================================
+
+\\ Auxiliary module FUNCTION
+ENTER PRENOM, COMPETENCE, CLASSE
+        comptxt=""
+
+        for i = 1 until count(COMPETENCE) do
+              comptxt = comptxt + ", " + COMPETENCE[i]
+        endfor
+             resultat = PRENOM + " est dans la classe " + CLASSE + " et connait le " + comptxt
+RETURN resultat
+
+\\ Main module 
+START
+
+    comp = ["html", "css", "github", "pseudo-code"]
+    write FUNCTION("Estelle", comp , "Lovelace")
+
+END
+
+=> Estelle est dans la classe Lovelace et connait le, html, css, github, pseudo-code
+
+
+// TABLEAU TRI
+
+
+//ETAPE 1 //DEFILEMENT DE i
+START
+    tableau = [5, 33, -11, 2, 24]
+
+    for i = 1 until count(tableau) do
+    write i
+    endfor
+END
+
+=>  1
+    2
+    3
+    4
+    5
+
+
+//ETAPE 2 //DEFILEMENT TABLEAU
+START
+    tableau = [5, 33, -11, 2, 24]
+
+    for i = 1 until count(tableau) do
+        write tableau
+    endfor
+END
+
+=>  [5, 33, -11, 2, 24]
+    [5, 33, -11, 2, 24]
+    [5, 33, -11, 2, 24]
+    [5, 33, -11, 2, 24]
+    [5, 33, -11, 2, 24]
+
+
+//ETAPE 3 //DEFILEMENT VALEURS
+// la boucle FOR crée la variable i >< while
+
+START
+    tableau = [5, 33, -11, 2, 24]
+
+    for i = 1 until count(tableau) do
+        write tableau[i]
+    endfor
+END
+
+=>  5
+    33
+    -11
+    2
+    24
+
+
+//ETAPE 4 COMPARAISON ELEMENT 1 DU TABLEAU AVEC ELEMENT 2 DU TABLEAU
+// BOUCLE REITERE 5 FOIS
+
+START
+    tableau = [5, 33, -11, 2, 24]
+    petit = 0
+
+    for i = 1 until count(tableau) do
+        if tableau[1] < tableau[2] then
+            petit = tableau[1]
+        else
+            petit = tableau[2]
+        endif
+        write petit
+    endfor
+END
+
+=>  5
+    5
+    5
+    5
+    5
+    
+
+//ETAPE 5 
+
+START
+    tableau = [5, 33, -11, 2, 24]
+    petit = 0
+
+    for i = 1 until count(tableau) do
+        tableau[i] + 1
+            if tableau[1] < tableau[2] then
+                petit = tableau[1]
+            else
+                petit = tableau[2]
+            endif
+        write petit
+    endfor
+END
